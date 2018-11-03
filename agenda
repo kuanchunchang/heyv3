@@ -1,4 +1,5 @@
 1. get start with heysasha_v2.yml
+ $ docker-compose -f heysasha_v3.yml up  
 
 2. add a table via a script
 

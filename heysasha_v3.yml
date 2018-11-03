@@ -1,0 +1,20 @@
+version: '3'
+services:
+  api:
+    container_name: api
+    image: kuanchunchang/heysasha_api:v2
+    command: npm start
+    ports:
+      - "3000:3000"
+  db:
+    image: kuanchunchang/heysasha_db:v2
+    container_name: db
+    
+  pgadmin:
+    container_name: pgadmin
+    links:
+      - db
+    image: fenglc/pgadmin4
+    ports:
+      - "5050:5050"
+    restart: unless-stopped
