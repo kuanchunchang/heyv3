@@ -12,5 +12,21 @@
   - The status in localhost:3000 was changed
 
 3. backup/restore database
+  - create another table
+   $ docker exec -it db psql -U api
+   # CREATE TABLE another( id int not null, name text not null, Alpha text not null );
+   # \q
+
+  - check localhost:5050
+
+  - backup current database
+   $ docker exec -t db pg_dump -c -U api > dump.sql
+
+  - restore database
+   $ docker-compose -f heysasha_v3.yml down
+   $ docker-compose -f heysasha_v3.yml up
+   $ cat dump.sql | docker exec -i db psql -U api
+
+  - check localhost:5050 again
 
 4. runs a init.sql file when postgreSQL boot up 
