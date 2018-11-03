@@ -30,3 +30,19 @@
   - check localhost:5050 again
 
 4. runs a init.sql file when postgreSQL boot up 
+  $ docker-compose -f heysasha_v3.yml down
+
+  - heysasha_v3.yml modification
+    add below ~
+    volumes:
+       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  - creare a init.sql file
+    CREATE TABLE Alphabet( id int not null, name text not null, Alpha text not null );
+    INSERT INTO Alphabet values(26,'Zulu','Z');
+
+  $ docker-compose -f heysasha_v3.yml up
+
+  - check if 26,'Zulu','Z' can be queried in localhost:3000  
+
+

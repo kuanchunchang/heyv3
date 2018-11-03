@@ -9,7 +9,8 @@ services:
   db:
     image: kuanchunchang/heysasha_db:v2
     container_name: db
-    
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql    
   pgadmin:
     container_name: pgadmin
     links:
