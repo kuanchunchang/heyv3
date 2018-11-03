@@ -1,7 +1,15 @@
 1. get start with heysasha_v2.yml
  $ docker-compose -f heysasha_v3.yml up  
+ - check localhost:3000
 
 2. add a table via a script
+  - copy localfile.sql to postgreSQL 
+   $ docker cp ./localfile.sql db:/file.sql
+ 
+  - update table via postgreSQL in docker container
+   $ docker exec -it db psql -U api -f file.sql
+
+  - The status in localhost:3000 was changed
 
 3. backup/restore database
 
