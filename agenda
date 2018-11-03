@@ -1,0 +1,7 @@
+1. get start with heysasha_v2.yml
+
+2. add a table via a script
+
+3. backup/restore database
+
+4. runs a init.sql file when postgreSQL boot up 
